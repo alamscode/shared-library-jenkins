@@ -16,24 +16,6 @@ def call(){
     String cron_string = BRANCH_NAME == "dev" ? "* * * * *" : ""
     def scm = "${isStartedByTimer()}"
 
-
-    pipeline {
-        agent any
-        triggers {
-            pollSCM(cron_string)
-        }
-
-        stages {
-            stage('triggerjob') {
-                steps {
-                    script {
-                        echo "Trigger job done"
-                    }
-                }
-            }
-        }
-    }
-
     pipeline {
         agent any
         parameters {
