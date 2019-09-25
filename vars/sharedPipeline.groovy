@@ -12,7 +12,7 @@ def isStartedByTimer() {
 }
 
 
-def call(Map pipelineParams){
+
     String cron_string = BRANCH_NAME == "master" ? "* * * * *" : ""
     def scm = "${isStartedByTimer()}"
 
@@ -22,7 +22,7 @@ def call(Map pipelineParams){
             string(name: 'GIT_REV', defaultValue: '', description: 'The git commit you want to build')
             string(name: 'EKS_CLUSTER', defaultValue: 'qa_nclouds', description: 'The name of the eks cluster')
             string(name: 'AWS_REGION', defaultValue: 'us-west-2')
-            choice(name: 'OPTION', choices: pipelineParams.options)
+            choice(name: 'OPTION', choices: ['test', 'build', 'deploy', 're-deploy', 'new'])
         }
 
 
@@ -200,4 +200,9 @@ def call(Map pipelineParams){
             
         }
     }
+
+
+
+def call(){
+	sh 'echo ${scm}'
 }
