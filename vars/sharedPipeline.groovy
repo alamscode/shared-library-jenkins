@@ -13,7 +13,7 @@ def isStartedByTimer() {
 
 
 def call(){
-    String cron_string = BRANCH_NAME == "dev" ? "* * * * *" : ""
+    String cron_string = BRANCH_NAME == "dev" ? "* * * * *" : ""}
     def scm = "${isStartedByTimer()}"
 
 
@@ -30,7 +30,7 @@ def call(){
         }
         triggers {
             pollSCM(cron_string)
-	}}
+	}
     
         stages {
 
