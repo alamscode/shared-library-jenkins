@@ -19,20 +19,21 @@ def isStartedByTimer() {
 
     pipeline {
         agent any
-	def call(){
         parameters {
             string(name: 'GIT_REV', defaultValue: '', description: 'The git commit you want to build')
             string(name: 'EKS_CLUSTER', defaultValue: 'qa_nclouds', description: 'The name of the eks cluster')
             string(name: 'AWS_REGION', defaultValue: 'us-west-2')
             choice(name: 'OPTION', choices: ['test', 'build', 'deploy', 're-deploy'])
-	}}
+        }
+
+
         options {
             disableConcurrentBuilds()
         }
         triggers {
             pollSCM(cron_string)
-	}
-    
+        }
+
         stages {
 
             stage('Checkout') {
@@ -200,3 +201,4 @@ def isStartedByTimer() {
             
         }
     }
+def call(){}
