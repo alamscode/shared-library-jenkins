@@ -33,7 +33,7 @@ def call(){
             }
         }
     }
-}
+
     pipeline {
         agent any
         parameters {
@@ -218,3 +218,4 @@ def call(){
             
         }
     }
+}
