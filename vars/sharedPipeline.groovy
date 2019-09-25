@@ -16,8 +16,8 @@ def isStartedByTimer() {
     String cron_string = BRANCH_NAME == "dev" ? "* * * * *" : ""
     def scm = "${isStartedByTimer()}"
 
-
-    pipeline {
+def call(){
+    'pipeline {
         agent any
         parameters {
             string(name: 'GIT_REV', defaultValue: '', description: 'The git commit you want to build')
@@ -32,8 +32,8 @@ def isStartedByTimer() {
         }
         triggers {
             pollSCM(cron_string)
-        }
-
+        }'
+}
         stages {
 
             stage('Checkout') {
@@ -201,4 +201,3 @@ def isStartedByTimer() {
             
         }
     }
-def call(){}
