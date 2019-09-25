@@ -205,6 +205,6 @@ def isStartedByTimer() {
 
 def call(){
 	script {
-                echo "${scm}"
+                echo "${isStartedByTimer()}"
         }
 }
