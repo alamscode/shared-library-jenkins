@@ -12,7 +12,7 @@ def isStartedByTimer() {
 }
 
 
-
+def call(){
     String cron_string = BRANCH_NAME == "master" ? "* * * * *" : ""
     def scm = "${isStartedByTimer()}"
 
@@ -201,7 +201,7 @@ def isStartedByTimer() {
         }
     }
 
-
+}
 
 def trigger(){
 	script {
