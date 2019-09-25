@@ -203,8 +203,8 @@ def isStartedByTimer() {
 
 
 
-def call(){
+def trigger(message){
 	script {
-                echo "${isStartedByTimer()}"
+                echo "TRIGGER: ${isStartedByTimer()}"
         }
 }
