@@ -13,7 +13,7 @@ def isStartedByTimer() {
 
 
 def call(){
-    String cron_string = BRANCH_NAME == "dev" ? "* * * * *" : ""}
+    String cron_string = BRANCH_NAME == "dev" ? "* * * * *" : ""
     def scm = "${isStartedByTimer()}"
 
 
@@ -24,16 +24,14 @@ def call(){
             string(name: 'EKS_CLUSTER', defaultValue: 'qa_nclouds', description: 'The name of the eks cluster')
             string(name: 'AWS_REGION', defaultValue: 'us-west-2')
             choice(name: 'OPTION', choices: ['test', 'build', 'deploy', 're-deploy'])
-        }
-
-
+	}
         options {
             disableConcurrentBuilds()
         }
         triggers {
             pollSCM(cron_string)
-        }
-
+	}}
+    
         stages {
 
             stage('Checkout') {
