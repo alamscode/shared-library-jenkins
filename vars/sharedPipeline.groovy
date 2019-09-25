@@ -22,6 +22,15 @@ def call(){
         triggers {
             pollSCM(cron_string)
         }
+        stages {
+            stage('trigger'){
+                steps{
+                    script {
+                        echo "Trigger Job done"
+                    }
+                }
+            }
+        }
     }
 }
     pipeline {
