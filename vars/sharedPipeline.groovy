@@ -204,5 +204,5 @@ def isStartedByTimer() {
 
 
 def call(){
-	echo ${scm}
+	echo "${scm}"
 }
