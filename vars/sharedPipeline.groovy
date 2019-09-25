@@ -207,7 +207,4 @@ def trigger(){
 	script {
                 echo "${isStartedByTimer()}"
         }
-	triggers {
-            pollSCM(cron_string)
-        }
 }
