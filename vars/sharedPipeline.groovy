@@ -12,11 +12,11 @@ def isStartedByTimer() {
 }
 
 
-
+def call(){
     String cron_string = BRANCH_NAME == "dev" ? "* * * * *" : ""
     def scm = "${isStartedByTimer()}"
 
-def call(){
+
     pipeline {
         agent any
         triggers {
