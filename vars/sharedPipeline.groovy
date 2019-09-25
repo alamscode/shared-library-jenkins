@@ -204,5 +204,8 @@ def isStartedByTimer() {
 
 
 def call(){
-	println(${scm})
+	script {
+		echo "Hello Wordld"
+                echo "${scm}"
+        }
 }
