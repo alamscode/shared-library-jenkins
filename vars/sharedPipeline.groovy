@@ -22,11 +22,12 @@ def call(){
         triggers {
             pollSCM(cron_string)
         }
+
         stages {
-            stage('trigger'){
-                steps{
+            stage('triggerjob') {
+                steps {
                     script {
-                        echo "Trigger Job done"
+                        echo "Trigger job done"
                     }
                 }
             }
