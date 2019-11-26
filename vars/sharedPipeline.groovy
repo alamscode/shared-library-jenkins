@@ -22,7 +22,7 @@ def call(){
             string(name: 'GIT_REV', defaultValue: '', description: 'The git commit you want to build')
             string(name: 'EKS_CLUSTER', defaultValue: 'qa_nclouds', description: 'The name of the eks cluster')
             string(name: 'AWS_REGION', defaultValue: 'us-west-2')
-            choice(name: 'OPTION', choices: ['test', 'build', 'deploy', 're-deploy', 'new8'])
+            choice(name: 'OPTION', choices: ['test', 'build', 'add-artifacts', 'deploy', 're-deploy', 'new'])
         }
 
 
@@ -142,6 +142,24 @@ def call(){
                     sh 'echo "Stage push done"'
                 }
             }
+            
+
+
+            stage('add-artifacts'){
+                when {
+                    expression {
+                        params.OPTION == "deploy"
+                    }
+                }
+                steps{
+                    script {
+                        sh 'echo "Stage re-deploy done"'
+
+                    }
+                    
+                }
+            }
+
 
 
             stage('deploy') {
