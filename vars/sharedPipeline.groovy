@@ -30,7 +30,7 @@ def call(){
             disableConcurrentBuilds()
         }
 //        triggers {
-//            pollSCM(cron_string)
+//            pollSCM(cron_string) 
 //        }
 
         stages {
